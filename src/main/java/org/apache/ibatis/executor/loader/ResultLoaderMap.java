@@ -148,7 +148,7 @@ public class ResultLoaderMap {
      */
     private Serializable mappedParameter;
 
-    private LoadPair(final String property, MetaObject metaResultObject, ResultLoader resultLoader) {
+    LoadPair(final String property, MetaObject metaResultObject, ResultLoader resultLoader) {
       this.property = property;
       this.metaResultObject = metaResultObject;
       this.resultLoader = resultLoader;
