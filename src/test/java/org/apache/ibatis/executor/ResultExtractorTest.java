@@ -102,131 +102,131 @@ class ResultExtractorTest {
   // }
 
   // KItest
-//  private ResultExtractor resultExtractor;
-//  private Configuration configuration;
-//  private ObjectFactory objectFactory;
-//
-//  @BeforeEach
-//  public void setUp() {
-//    configuration = mock(Configuration.class);
-//    objectFactory = mock(ObjectFactory.class);
-//    resultExtractor = new ResultExtractor(configuration, objectFactory);
-//  }
-//
-//  @Test
-//  public void testReturnsSingleElementWhenTargetTypeIsNull() {
-//    List<Object> list = Collections.singletonList(1); // Liste mit einem einzigen Element
-//    Object result = resultExtractor.extractObjectFromList(list, null);
-//    assertEquals(1, result); // Erwartet, dass das Element zurückgegeben wird
-//  }
-//
-//  @Test
-//  public void testReturnsListWhenTargetTypeIsList() {
-//    List<Object> list = Arrays.asList(1, 2, 3);
-//    Object result = resultExtractor.extractObjectFromList(list, List.class);
-//    assertTrue(result instanceof List);
-//    assertEquals(list, result);
-//  }
-//
-//  @Test
-//  public void testConvertsListToArray() {
-//    List<Object> list = Arrays.asList(1, 2, 3);
-//    Object result = resultExtractor.extractObjectFromList(list, Integer[].class);
-//    assertTrue(result instanceof Integer[]);
-//    assertArrayEquals(new Integer[] { 1, 2, 3 }, (Integer[]) result);
-//  }
-//
-//  @Test
-//  public void testConvertsListToSetUsingMetaObjectThree() {
-//    when(objectFactory.isCollection(Set.class)).thenReturn(true);
-//    Set<Object> mockedSet = mock(Set.class);
-//    when(objectFactory.create(Set.class)).thenReturn(mockedSet);
-//
-//    MetaObject mockedMetaObject = mock(MetaObject.class);
-//    when(configuration.newMetaObject(mockedSet)).thenReturn(mockedMetaObject);
-//
-//    List<Object> list = Arrays.asList(1, 2, 3);
-//    Object result = resultExtractor.extractObjectFromList(list, Set.class);
-//
-//    assertTrue(result instanceof Set);
-//    // Verify that addAll was actually called on the MetaObject, we need to
-//    // ensure our mocks/setup are correct
-//    Mockito.verify(mockedMetaObject).addAll(list);
-//  }
-//
-//  @Test
-//  public void testReturnsSingleElementFromList() {
-//    List<Object> list = Collections.singletonList(1);
-//    Object result = resultExtractor.extractObjectFromList(list, Integer.class);
-//    assertEquals(1, result);
-//  }
-//
-//  @Test
-//  public void testThrowsExceptionForMultipleElementsWithSingleElementTargetType() {
-//    List<Object> list = Arrays.asList(1, 2);
-//
-//    assertThrows(ExecutorException.class, () -> {
-//      resultExtractor.extractObjectFromList(list, Integer.class);
-//    });
-//  }
+  private ResultExtractor resultExtractor;
+  private Configuration configuration;
+  private ObjectFactory objectFactory;
+
+  @BeforeEach
+  public void setUp() {
+    configuration = mock(Configuration.class);
+    objectFactory = mock(ObjectFactory.class);
+    resultExtractor = new ResultExtractor(configuration, objectFactory);
+  }
+
+  @Test
+  public void testReturnsSingleElementWhenTargetTypeIsNull() {
+    List<Object> list = Collections.singletonList(1); // Liste mit einem einzigen Element
+    Object result = resultExtractor.extractObjectFromList(list, null);
+    assertEquals(1, result); // Erwartet, dass das Element zurückgegeben wird
+  }
+
+  @Test
+  public void testReturnsListWhenTargetTypeIsList() {
+    List<Object> list = Arrays.asList(1, 2, 3);
+    Object result = resultExtractor.extractObjectFromList(list, List.class);
+    assertTrue(result instanceof List);
+    assertEquals(list, result);
+  }
+
+  @Test
+  public void testConvertsListToArray() {
+    List<Object> list = Arrays.asList(1, 2, 3);
+    Object result = resultExtractor.extractObjectFromList(list, Integer[].class);
+    assertTrue(result instanceof Integer[]);
+    assertArrayEquals(new Integer[] { 1, 2, 3 }, (Integer[]) result);
+  }
+
+  @Test
+  public void testConvertsListToSetUsingMetaObjectThree() {
+    when(objectFactory.isCollection(Set.class)).thenReturn(true);
+    Set<Object> mockedSet = mock(Set.class);
+    when(objectFactory.create(Set.class)).thenReturn(mockedSet);
+
+    MetaObject mockedMetaObject = mock(MetaObject.class);
+    when(configuration.newMetaObject(mockedSet)).thenReturn(mockedMetaObject);
+
+    List<Object> list = Arrays.asList(1, 2, 3);
+    Object result = resultExtractor.extractObjectFromList(list, Set.class);
+
+    assertTrue(result instanceof Set);
+    // Verify that addAll was actually called on the MetaObject, we need to
+    // ensure our mocks/setup are correct
+    Mockito.verify(mockedMetaObject).addAll(list);
+  }
+
+  @Test
+  public void testReturnsSingleElementFromList() {
+    List<Object> list = Collections.singletonList(1);
+    Object result = resultExtractor.extractObjectFromList(list, Integer.class);
+    assertEquals(1, result);
+  }
+
+  @Test
+  public void testThrowsExceptionForMultipleElementsWithSingleElementTargetType() {
+    List<Object> list = Arrays.asList(1, 2);
+
+    assertThrows(ExecutorException.class, () -> {
+      resultExtractor.extractObjectFromList(list, Integer.class);
+    });
+  }
 
   // Mini
-   private Configuration configuration;
-   private ObjectFactory objectFactory;
-   private ResultExtractor resultExtractor;
-
-   @BeforeEach
-   void setUp() {
-   configuration = new Configuration();
-   objectFactory = new DefaultObjectFactory();
-   resultExtractor = new ResultExtractor(configuration, objectFactory);
-   }
-
-   @Test
-   void testExtractObjectFromList_withNullTargetType_returnsNull() {
-   // Eine leere Liste, um den Fall zu simulieren, wenn kein Zieltypen definiert ist.
-   List<Object> list = Collections.emptyList();
-   Object result = resultExtractor.extractObjectFromList(list, null);
-   Assertions.assertNull(result, "Expected result to be null when targetType is null");
-   }
-
-   @Test
-   void testExtractObjectFromList_withListTargetType_returnsList() {
-   List<Object> list = Arrays.asList("element1", "element2");
-   Object result = resultExtractor.extractObjectFromList(list, List.class);
-   Assertions.assertEquals(list, result, "Expected result to be the same list");
-   }
-
-   @Test
-   void testExtractObjectFromList_withArrayTargetType_returnsArray() {
-   List<Object> list = Arrays.asList("element1", "element2");
-   Object result = resultExtractor.extractObjectFromList(list, String[].class);
-   String[] expected = list.toArray(new String[0]);
-   Assertions.assertArrayEquals(expected, (Object[]) result, "Expected result to be an array");
-   }
-
-   @Test
-   void testExtractObjectFromList_withSetTargetType_returnsSet() {
-   List<Object> list = Arrays.asList("element1", "element2", "element1");
-   Object result = resultExtractor.extractObjectFromList(list, HashSet.class);
-   Assertions.assertTrue(((HashSet<?>) result).contains("element1"));
-   Assertions.assertTrue(((HashSet<?>) result).contains("element2"));
-   Assertions.assertEquals(2, ((HashSet<?>) result).size(), "Expected result to be a set with unique elements");
-   }
-
-   @Test
-   void testExtractObjectFromList_withSingleElementList_returnsElement() {
-   List<Object> list = Collections.singletonList("singleElement");
-   Object result = resultExtractor.extractObjectFromList(list, String.class);
-   Assertions.assertEquals("singleElement", result, "Expected result to be the single element");
-   }
-
-   @Test
-   void testExtractObjectFromList_withMultipleElementsAndSingleElementTargetType_throwsException() {
-   List<Object> list = Arrays.asList("element1", "element2");
-   Assertions.assertThrows(ExecutorException.class, () -> {
-   resultExtractor.extractObjectFromList(list, String.class);
-   }, "Expected ExecutorException to be thrown");
-   }
+//   private Configuration configuration;
+//   private ObjectFactory objectFactory;
+//   private ResultExtractor resultExtractor;
+//
+//   @BeforeEach
+//   void setUp() {
+//   configuration = new Configuration();
+//   objectFactory = new DefaultObjectFactory();
+//   resultExtractor = new ResultExtractor(configuration, objectFactory);
+//   }
+//
+//   @Test
+//   void testExtractObjectFromList_withNullTargetType_returnsNull() {
+//   // Eine leere Liste, um den Fall zu simulieren, wenn kein Zieltypen definiert ist.
+//   List<Object> list = Collections.emptyList();
+//   Object result = resultExtractor.extractObjectFromList(list, null);
+//   Assertions.assertNull(result, "Expected result to be null when targetType is null");
+//   }
+//
+//   @Test
+//   void testExtractObjectFromList_withListTargetType_returnsList() {
+//   List<Object> list = Arrays.asList("element1", "element2");
+//   Object result = resultExtractor.extractObjectFromList(list, List.class);
+//   Assertions.assertEquals(list, result, "Expected result to be the same list");
+//   }
+//
+//   @Test
+//   void testExtractObjectFromList_withArrayTargetType_returnsArray() {
+//   List<Object> list = Arrays.asList("element1", "element2");
+//   Object result = resultExtractor.extractObjectFromList(list, String[].class);
+//   String[] expected = list.toArray(new String[0]);
+//   Assertions.assertArrayEquals(expected, (Object[]) result, "Expected result to be an array");
+//   }
+//
+//   @Test
+//   void testExtractObjectFromList_withSetTargetType_returnsSet() {
+//   List<Object> list = Arrays.asList("element1", "element2", "element1");
+//   Object result = resultExtractor.extractObjectFromList(list, HashSet.class);
+//   Assertions.assertTrue(((HashSet<?>) result).contains("element1"));
+//   Assertions.assertTrue(((HashSet<?>) result).contains("element2"));
+//   Assertions.assertEquals(2, ((HashSet<?>) result).size(), "Expected result to be a set with unique elements");
+//   }
+//
+//   @Test
+//   void testExtractObjectFromList_withSingleElementList_returnsElement() {
+//   List<Object> list = Collections.singletonList("singleElement");
+//   Object result = resultExtractor.extractObjectFromList(list, String.class);
+//   Assertions.assertEquals("singleElement", result, "Expected result to be the single element");
+//   }
+//
+//   @Test
+//   void testExtractObjectFromList_withMultipleElementsAndSingleElementTargetType_throwsException() {
+//   List<Object> list = Arrays.asList("element1", "element2");
+//   Assertions.assertThrows(ExecutorException.class, () -> {
+//   resultExtractor.extractObjectFromList(list, String.class);
+//   }, "Expected ExecutorException to be thrown");
+//   }
 
 } // KItest: 1-4 6/6; Mini: 1-4 6/6

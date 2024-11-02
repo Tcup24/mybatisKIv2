@@ -146,133 +146,133 @@ class ParameterExpressionTest {
   // }
 
   // KItest
-//  @Test
-//  void testSimplePropertyParsingTwo() {
-//    ParameterExpression parameterExpression = new ParameterExpression("myProperty");
-//    assertEquals("myProperty", parameterExpression.get("property"));
-//  }
-//
-//  @Test
-//  void testPropertyWithWhitespaceTwo() {
-//    ParameterExpression parameterExpression = new ParameterExpression(" propertyWithSpaces ");
-//    assertEquals("propertyWithSpaces", parameterExpression.get("property"));
-//  }
-//
-//  @Test
-//  void testOldJdbcTypeFormatTwo() {
-//    ParameterExpression parameterExpression = new ParameterExpression("myProperty:OLD_JDBC_TYPE");
-//    assertEquals("myProperty", parameterExpression.get("property"));
-//    assertEquals("OLD_JDBC_TYPE", parameterExpression.get("jdbcType"));
-//  }
-//
-//  @Test
-//  void testJdbcTypeWithExtraWhitespaceTwo() {
-//    ParameterExpression parameterExpression = new ParameterExpression("myProperty : JDBC_TYPE ");
-//    assertEquals("myProperty", parameterExpression.get("property"));
-//    assertEquals("JDBC_TYPE", parameterExpression.get("jdbcType"));
-//  }
-//
-//  @Test
-//  void testExpressionWithOldJdbcTypeTwo() {
-//    ParameterExpression parameterExpression = new ParameterExpression("(expression):OLD_TYPE");
-//    assertEquals("expression", parameterExpression.get("expression"));
-//    assertEquals("OLD_TYPE", parameterExpression.get("jdbcType"));
-//  }
-//
-//  @Test
-//  void testSimplePropertyWithSingleAttributeTwo() {
-//    ParameterExpression parameterExpression = new ParameterExpression("property,attr=value");
-//    assertEquals("property", parameterExpression.get("property"));
-//    assertEquals("value", parameterExpression.get("attr"));
-//  }
-//
-//  @Test
-//  void testExpressionWithSingleAttributeTwo() {
-//    ParameterExpression parameterExpression = new ParameterExpression("(expression),attr=value");
-//    assertEquals("expression", parameterExpression.get("expression"));
-//    assertEquals("value", parameterExpression.get("attr"));
-//  }
-//
-//  @Test
-//  void testSimplePropertyWithMultipleAttributesTwo() {
-//    ParameterExpression parameterExpression = new ParameterExpression("property,attr1=value1,attr2=value2");
-//    assertEquals("property", parameterExpression.get("property"));
-//    assertEquals("value1", parameterExpression.get("attr1"));
-//    assertEquals("value2", parameterExpression.get("attr2"));
-//  }
-//
-//  @Test
-//  void testExpressionWithMultipleAttributesTwo() {
-//    ParameterExpression parameterExpression = new ParameterExpression("(expression),attr1=value1,attr2=value2");
-//    assertEquals("expression", parameterExpression.get("expression"));
-//    assertEquals("value1", parameterExpression.get("attr1"));
-//    assertEquals("value2", parameterExpression.get("attr2"));
-//  }
-//
-//  @Test
-//  void testSimplePropertyWithOldJdbcTypeAndMultipleAttributesTwo() {
-//    ParameterExpression parameterExpression = new ParameterExpression("property:OLD_JDBC,attr1=value1,attr2=value2");
-//    assertEquals("property", parameterExpression.get("property"));
-//    assertEquals("OLD_JDBC", parameterExpression.get("jdbcType"));
-//    assertEquals("value1", parameterExpression.get("attr1"));
-//    assertEquals("value2", parameterExpression.get("attr2"));
-//  }
-//
-//  @Test
-//  void testPropertyWithWhitespaceAndMultipleAttributesTwo() {
-//    ParameterExpression parameterExpression = new ParameterExpression(" property , attr1=value1, attr2=value2 ");
-//    assertEquals("property", parameterExpression.get("property"));
-//    assertEquals("value1", parameterExpression.get("attr1"));
-//    assertEquals("value2", parameterExpression.get("attr2"));
-//  }
-//
-//  @Test
-//  void testLeadingAndTrailingWhitespaceIgnoredTwo() {
-//    ParameterExpression parameterExpression = new ParameterExpression(" property , attr=value ");
-//    assertEquals("property", parameterExpression.get("property"));
-//    assertEquals("value", parameterExpression.get("attr"));
-//  }
-//
-//  @Test
-//  void testInvalidJdbcTypeFormatThrowsErrorThree() { // 4ter versuch
-//    assertThrows(BuilderException.class, () -> {
-//      // Hier führen wir eine Eingabe ein, die den Parsingmechanismus nicht erfüllt.
-//      // Dies könnte eine doppelte Trennung sein, die im Test nicht erwartet wird.
-//      new ParameterExpression("property: ");
-//    });
-//  }
-//
-//  @Test
-//  void testInvalidExpressionFormatThrowsErrorTwo() {
-//    assertThrows(RuntimeException.class, () -> {
-//      new ParameterExpression("(unmatchedParenthesis");
-//    });
-//  }
+  @Test
+  void testSimplePropertyParsingTwo() {
+    ParameterExpression parameterExpression = new ParameterExpression("myProperty");
+    assertEquals("myProperty", parameterExpression.get("property"));
+  }
+
+  @Test
+  void testPropertyWithWhitespaceTwo() {
+    ParameterExpression parameterExpression = new ParameterExpression(" propertyWithSpaces ");
+    assertEquals("propertyWithSpaces", parameterExpression.get("property"));
+  }
+
+  @Test
+  void testOldJdbcTypeFormatTwo() {
+    ParameterExpression parameterExpression = new ParameterExpression("myProperty:OLD_JDBC_TYPE");
+    assertEquals("myProperty", parameterExpression.get("property"));
+    assertEquals("OLD_JDBC_TYPE", parameterExpression.get("jdbcType"));
+  }
+
+  @Test
+  void testJdbcTypeWithExtraWhitespaceTwo() {
+    ParameterExpression parameterExpression = new ParameterExpression("myProperty : JDBC_TYPE ");
+    assertEquals("myProperty", parameterExpression.get("property"));
+    assertEquals("JDBC_TYPE", parameterExpression.get("jdbcType"));
+  }
+
+  @Test
+  void testExpressionWithOldJdbcTypeTwo() {
+    ParameterExpression parameterExpression = new ParameterExpression("(expression):OLD_TYPE");
+    assertEquals("expression", parameterExpression.get("expression"));
+    assertEquals("OLD_TYPE", parameterExpression.get("jdbcType"));
+  }
+
+  @Test
+  void testSimplePropertyWithSingleAttributeTwo() {
+    ParameterExpression parameterExpression = new ParameterExpression("property,attr=value");
+    assertEquals("property", parameterExpression.get("property"));
+    assertEquals("value", parameterExpression.get("attr"));
+  }
+
+  @Test
+  void testExpressionWithSingleAttributeTwo() {
+    ParameterExpression parameterExpression = new ParameterExpression("(expression),attr=value");
+    assertEquals("expression", parameterExpression.get("expression"));
+    assertEquals("value", parameterExpression.get("attr"));
+  }
+
+  @Test
+  void testSimplePropertyWithMultipleAttributesTwo() {
+    ParameterExpression parameterExpression = new ParameterExpression("property,attr1=value1,attr2=value2");
+    assertEquals("property", parameterExpression.get("property"));
+    assertEquals("value1", parameterExpression.get("attr1"));
+    assertEquals("value2", parameterExpression.get("attr2"));
+  }
+
+  @Test
+  void testExpressionWithMultipleAttributesTwo() {
+    ParameterExpression parameterExpression = new ParameterExpression("(expression),attr1=value1,attr2=value2");
+    assertEquals("expression", parameterExpression.get("expression"));
+    assertEquals("value1", parameterExpression.get("attr1"));
+    assertEquals("value2", parameterExpression.get("attr2"));
+  }
+
+  @Test
+  void testSimplePropertyWithOldJdbcTypeAndMultipleAttributesTwo() {
+    ParameterExpression parameterExpression = new ParameterExpression("property:OLD_JDBC,attr1=value1,attr2=value2");
+    assertEquals("property", parameterExpression.get("property"));
+    assertEquals("OLD_JDBC", parameterExpression.get("jdbcType"));
+    assertEquals("value1", parameterExpression.get("attr1"));
+    assertEquals("value2", parameterExpression.get("attr2"));
+  }
+
+  @Test
+  void testPropertyWithWhitespaceAndMultipleAttributesTwo() {
+    ParameterExpression parameterExpression = new ParameterExpression(" property , attr1=value1, attr2=value2 ");
+    assertEquals("property", parameterExpression.get("property"));
+    assertEquals("value1", parameterExpression.get("attr1"));
+    assertEquals("value2", parameterExpression.get("attr2"));
+  }
+
+  @Test
+  void testLeadingAndTrailingWhitespaceIgnoredTwo() {
+    ParameterExpression parameterExpression = new ParameterExpression(" property , attr=value ");
+    assertEquals("property", parameterExpression.get("property"));
+    assertEquals("value", parameterExpression.get("attr"));
+  }
+
+  @Test
+  void testInvalidJdbcTypeFormatThrowsErrorThree() { // 4ter versuch
+    assertThrows(BuilderException.class, () -> {
+      // Hier führen wir eine Eingabe ein, die den Parsingmechanismus nicht erfüllt.
+      // Dies könnte eine doppelte Trennung sein, die im Test nicht erwartet wird.
+      new ParameterExpression("property: ");
+    });
+  }
+
+  @Test
+  void testInvalidExpressionFormatThrowsErrorTwo() {
+    assertThrows(RuntimeException.class, () -> {
+      new ParameterExpression("(unmatchedParenthesis");
+    });
+  }
 
   // Mini
-   @Test
-   public void testSimplePropertyCreation() {
-   ParameterExpression param = new ParameterExpression("propertyName");
-   assertEquals("propertyName", param.get("property"));
-   }
-
-   @Test
-   public void testPropertyWithSpaces() {
-   ParameterExpression param = new ParameterExpression(" property Name ");
-   assertEquals("property Name", param.get("property"));
-   }
-
-   @Test
-   public void testSimplePropertyWithOldJdbcType() {
-   ParameterExpression param = new ParameterExpression("propertyName: OLD_TYPE");
-   assertEquals("OLD_TYPE", param.get("jdbcType"));
-   }
-
-   @Test
-   public void testPropertyWithSpacesAroundJdbcType() {
-   ParameterExpression param = new ParameterExpression("propertyName : OLD_TYPE ");
-   assertEquals("OLD_TYPE", param.get("jdbcType"));
-   }
+//   @Test
+//   public void testSimplePropertyCreation() {
+//   ParameterExpression param = new ParameterExpression("propertyName");
+//   assertEquals("propertyName", param.get("property"));
+//   }
+//
+//   @Test
+//   public void testPropertyWithSpaces() {
+//   ParameterExpression param = new ParameterExpression(" property Name ");
+//   assertEquals("property Name", param.get("property"));
+//   }
+//
+//   @Test
+//   public void testSimplePropertyWithOldJdbcType() {
+//   ParameterExpression param = new ParameterExpression("propertyName: OLD_TYPE");
+//   assertEquals("OLD_TYPE", param.get("jdbcType"));
+//   }
+//
+//   @Test
+//   public void testPropertyWithSpacesAroundJdbcType() {
+//   ParameterExpression param = new ParameterExpression("propertyName : OLD_TYPE ");
+//   assertEquals("OLD_TYPE", param.get("jdbcType"));
+//   }
 
   // --------------------
   // @Test
@@ -337,29 +337,29 @@ class ParameterExpressionTest {
   // }
   // --------------------
 
-   @Test
-   public void testSimplePropertyWithOldJdbcTypeAndMultipleAttributes() {
-   ParameterExpression param = new ParameterExpression("propertyName: OLD_TYPE, attr1=value1, attr2=value2");
-   assertEquals("OLD_TYPE", param.get("jdbcType"));
-   assertEquals("value1", param.get("attr1"));
-   assertEquals("value2", param.get("attr2"));
-   }
-
-   @Test
-   public void testPropertyWithSpacesAndMultipleAttributes() {
-   ParameterExpression param = new ParameterExpression(" propertyName : OLD_TYPE , attr1 = value1 , attr2 = value2 ");
-   assertEquals("OLD_TYPE", param.get("jdbcType"));
-   assertEquals("value1", param.get("attr1"));
-   assertEquals("value2", param.get("attr2"));
-   }
-
-   @Test
-   public void testInvalidExpressionFormatThrowsError() {
-   Exception exception = assertThrows(BuilderException.class, () -> {
-   new ParameterExpression("propertyName: , :");
-   });
-   assertTrue(exception.getMessage().contains("Parsing error"));
-   }
+//   @Test
+//   public void testSimplePropertyWithOldJdbcTypeAndMultipleAttributes() {
+//   ParameterExpression param = new ParameterExpression("propertyName: OLD_TYPE, attr1=value1, attr2=value2");
+//   assertEquals("OLD_TYPE", param.get("jdbcType"));
+//   assertEquals("value1", param.get("attr1"));
+//   assertEquals("value2", param.get("attr2"));
+//   }
+//
+//   @Test
+//   public void testPropertyWithSpacesAndMultipleAttributes() {
+//   ParameterExpression param = new ParameterExpression(" propertyName : OLD_TYPE , attr1 = value1 , attr2 = value2 ");
+//   assertEquals("OLD_TYPE", param.get("jdbcType"));
+//   assertEquals("value1", param.get("attr1"));
+//   assertEquals("value2", param.get("attr2"));
+//   }
+//
+//   @Test
+//   public void testInvalidExpressionFormatThrowsError() {
+//   Exception exception = assertThrows(BuilderException.class, () -> {
+//   new ParameterExpression("propertyName: , :");
+//   });
+//   assertTrue(exception.getMessage().contains("Parsing error"));
+//   }
 
   // KItest: 1-3 14/14; Mini 1-4 7/14
 }

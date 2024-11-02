@@ -123,161 +123,161 @@ class SelectBuilderTest {
   // }
 
   // KItest
-//  @Test
-//  void shouldProduceExpectedSimpleSelectStatement() {
-//    String result = example2("123", "John", "Doe");
-//    String expected = "SELECT P.ID, P.USERNAME, P.PASSWORD, P.FIRST_NAME, P.LAST_NAME " + "FROM PERSON P "
-//        + "WHERE P.ID like #id# AND P.FIRST_NAME like #firstName# AND P.LAST_NAME like #lastName# "
-//        + "ORDER BY P.LAST_NAME";
-//    assertEquals(normalizeWhitespace(expected), normalizeWhitespace(result));
-//  }
-//
-//  @Test
-//  void shouldProduceExpectedSimpleSelectStatementMissingFirstParam() {
-//    String result = example2(null, "John", "Doe");
-//    String expected = "SELECT P.ID, P.USERNAME, P.PASSWORD, P.FIRST_NAME, P.LAST_NAME " + "FROM PERSON P "
-//        + "WHERE P.FIRST_NAME like #firstName# AND P.LAST_NAME like #lastName# " + "ORDER BY P.LAST_NAME";
-//    assertEquals(normalizeWhitespace(expected), normalizeWhitespace(result));
-//  }
-//
-//  @Test
-//  void shouldProduceExpectedSimpleSelectStatementMissingFirstTwoParams() {
-//    String result = example2(null, null, "Doe");
-//    String expected = "SELECT P.ID, P.USERNAME, P.PASSWORD, P.FIRST_NAME, P.LAST_NAME " + "FROM PERSON P "
-//        + "WHERE P.LAST_NAME like #lastName# " + "ORDER BY P.LAST_NAME";
-//    assertEquals(normalizeWhitespace(expected), normalizeWhitespace(result));
-//  }
-//
-//  @Test
-//  void shouldProduceExpectedSimpleSelectStatementMissingAllParams() {
-//    String result = example2(null, null, null);
-//    String expected = "SELECT P.ID, P.USERNAME, P.PASSWORD, P.FIRST_NAME, P.LAST_NAME " + "FROM PERSON P "
-//        + "ORDER BY P.LAST_NAME";
-//    assertEquals(normalizeWhitespace(expected), normalizeWhitespace(result));
-//  }
-//
-//  @Test
-//  void shouldProduceExpectedComplexSelectStatement() {
-//    String result = example1();
-//    String expected = "SELECT P.ID, P.USERNAME, P.PASSWORD, P.FULL_NAME, P.LAST_NAME, P.CREATED_ON, P.UPDATED_ON "
-//        + "FROM PERSON P, ACCOUNT A " + "INNER JOIN DEPARTMENT D on D.ID = P.DEPARTMENT_ID "
-//        + "INNER JOIN COMPANY C on D.COMPANY_ID = C.ID "
-//        + "WHERE P.ID = A.ID AND P.FIRST_NAME like ? OR P.LAST_NAME like ? " + "GROUP BY P.ID "
-//        + "HAVING P.LAST_NAME like ? OR P.FIRST_NAME like ? " + "ORDER BY P.ID, P.FULL_NAME";
-//    assertEquals(normalizeWhitespace(expected), normalizeWhitespace(result));
-//  }
-//
-//  private static String example1() {
-//    StringBuilder sql = new StringBuilder();
-//    sql.append("SELECT P.ID, P.USERNAME, P.PASSWORD, P.FULL_NAME, P.LAST_NAME, P.CREATED_ON, P.UPDATED_ON ");
-//    sql.append("FROM PERSON P, ACCOUNT A ");
-//    sql.append("INNER JOIN DEPARTMENT D on D.ID = P.DEPARTMENT_ID ");
-//    sql.append("INNER JOIN COMPANY C on D.COMPANY_ID = C.ID ");
-//    sql.append("WHERE P.ID = A.ID ");
-//    sql.append("AND P.FIRST_NAME like ? OR P.LAST_NAME like ? ");
-//    sql.append("GROUP BY P.ID ");
-//    sql.append("HAVING P.LAST_NAME like ? OR P.FIRST_NAME like ? ");
-//    sql.append("ORDER BY P.ID, P.FULL_NAME");
-//    return sql.toString();
-//  }
-//
-//  private static String example2(String id, String firstName, String lastName) {
-//    StringBuilder sql = new StringBuilder();
-//    sql.append("SELECT P.ID, P.USERNAME, P.PASSWORD, P.FIRST_NAME, P.LAST_NAME ");
-//    sql.append("FROM PERSON P ");
-//
-//    boolean whereAdded = false;
-//    if (id != null) {
-//      sql.append(whereAdded ? "AND " : "WHERE ").append("P.ID like #id# ");
-//      whereAdded = true;
-//    }
-//    if (firstName != null) {
-//      sql.append(whereAdded ? "AND " : "WHERE ").append("P.FIRST_NAME like #firstName# ");
-//      whereAdded = true;
-//    }
-//    if (lastName != null) {
-//      sql.append(whereAdded ? "AND " : "WHERE ").append("P.LAST_NAME like #lastName# ");
-//      whereAdded = true;
-//    }
-//
-//    sql.append("ORDER BY P.LAST_NAME");
-//    return sql.toString();
-//  }
-//
-//  private static String normalizeWhitespace(String input) {
-//    return input.replaceAll("\\s+", " ").trim();
-//  }
+  @Test
+  void shouldProduceExpectedSimpleSelectStatement() {
+    String result = example2("123", "John", "Doe");
+    String expected = "SELECT P.ID, P.USERNAME, P.PASSWORD, P.FIRST_NAME, P.LAST_NAME " + "FROM PERSON P "
+        + "WHERE P.ID like #id# AND P.FIRST_NAME like #firstName# AND P.LAST_NAME like #lastName# "
+        + "ORDER BY P.LAST_NAME";
+    assertEquals(normalizeWhitespace(expected), normalizeWhitespace(result));
+  }
+
+  @Test
+  void shouldProduceExpectedSimpleSelectStatementMissingFirstParam() {
+    String result = example2(null, "John", "Doe");
+    String expected = "SELECT P.ID, P.USERNAME, P.PASSWORD, P.FIRST_NAME, P.LAST_NAME " + "FROM PERSON P "
+        + "WHERE P.FIRST_NAME like #firstName# AND P.LAST_NAME like #lastName# " + "ORDER BY P.LAST_NAME";
+    assertEquals(normalizeWhitespace(expected), normalizeWhitespace(result));
+  }
+
+  @Test
+  void shouldProduceExpectedSimpleSelectStatementMissingFirstTwoParams() {
+    String result = example2(null, null, "Doe");
+    String expected = "SELECT P.ID, P.USERNAME, P.PASSWORD, P.FIRST_NAME, P.LAST_NAME " + "FROM PERSON P "
+        + "WHERE P.LAST_NAME like #lastName# " + "ORDER BY P.LAST_NAME";
+    assertEquals(normalizeWhitespace(expected), normalizeWhitespace(result));
+  }
+
+  @Test
+  void shouldProduceExpectedSimpleSelectStatementMissingAllParams() {
+    String result = example2(null, null, null);
+    String expected = "SELECT P.ID, P.USERNAME, P.PASSWORD, P.FIRST_NAME, P.LAST_NAME " + "FROM PERSON P "
+        + "ORDER BY P.LAST_NAME";
+    assertEquals(normalizeWhitespace(expected), normalizeWhitespace(result));
+  }
+
+  @Test
+  void shouldProduceExpectedComplexSelectStatement() {
+    String result = example1();
+    String expected = "SELECT P.ID, P.USERNAME, P.PASSWORD, P.FULL_NAME, P.LAST_NAME, P.CREATED_ON, P.UPDATED_ON "
+        + "FROM PERSON P, ACCOUNT A " + "INNER JOIN DEPARTMENT D on D.ID = P.DEPARTMENT_ID "
+        + "INNER JOIN COMPANY C on D.COMPANY_ID = C.ID "
+        + "WHERE P.ID = A.ID AND P.FIRST_NAME like ? OR P.LAST_NAME like ? " + "GROUP BY P.ID "
+        + "HAVING P.LAST_NAME like ? OR P.FIRST_NAME like ? " + "ORDER BY P.ID, P.FULL_NAME";
+    assertEquals(normalizeWhitespace(expected), normalizeWhitespace(result));
+  }
+
+  private static String example1() {
+    StringBuilder sql = new StringBuilder();
+    sql.append("SELECT P.ID, P.USERNAME, P.PASSWORD, P.FULL_NAME, P.LAST_NAME, P.CREATED_ON, P.UPDATED_ON ");
+    sql.append("FROM PERSON P, ACCOUNT A ");
+    sql.append("INNER JOIN DEPARTMENT D on D.ID = P.DEPARTMENT_ID ");
+    sql.append("INNER JOIN COMPANY C on D.COMPANY_ID = C.ID ");
+    sql.append("WHERE P.ID = A.ID ");
+    sql.append("AND P.FIRST_NAME like ? OR P.LAST_NAME like ? ");
+    sql.append("GROUP BY P.ID ");
+    sql.append("HAVING P.LAST_NAME like ? OR P.FIRST_NAME like ? ");
+    sql.append("ORDER BY P.ID, P.FULL_NAME");
+    return sql.toString();
+  }
+
+  private static String example2(String id, String firstName, String lastName) {
+    StringBuilder sql = new StringBuilder();
+    sql.append("SELECT P.ID, P.USERNAME, P.PASSWORD, P.FIRST_NAME, P.LAST_NAME ");
+    sql.append("FROM PERSON P ");
+
+    boolean whereAdded = false;
+    if (id != null) {
+      sql.append(whereAdded ? "AND " : "WHERE ").append("P.ID like #id# ");
+      whereAdded = true;
+    }
+    if (firstName != null) {
+      sql.append(whereAdded ? "AND " : "WHERE ").append("P.FIRST_NAME like #firstName# ");
+      whereAdded = true;
+    }
+    if (lastName != null) {
+      sql.append(whereAdded ? "AND " : "WHERE ").append("P.LAST_NAME like #lastName# ");
+      whereAdded = true;
+    }
+
+    sql.append("ORDER BY P.LAST_NAME");
+    return sql.toString();
+  }
+
+  private static String normalizeWhitespace(String input) {
+    return input.replaceAll("\\s+", " ").trim();
+  }
 
   // Mini
-   private static String example1() {
-   return "SELECT P.ID, P.USERNAME, P.PASSWORD, P.FULL_NAME, P.LAST_NAME, " + "P.CREATED_ON, P.UPDATED_ON "
-   + "FROM PERSON P " + "INNER JOIN ACCOUNT A on D.ID = P.DEPARTMENT_ID "
-   + "INNER JOIN DEPARTMENT D on D.ID = P.DEPARTMENT_ID " + "INNER JOIN COMPANY C on D.COMPANY_ID = C.ID "
-   + "WHERE P.ID = A.ID " + "AND (P.FIRST_NAME like ? OR P.LAST_NAME like ?) " + "GROUP BY P.ID "
-   + "HAVING (P.LAST_NAME like ? OR P.FIRST_NAME like ?) " + "ORDER BY P.ID, P.FULL_NAME;";
-   }
-
-   private static String example2(String id, String firstName, String lastName) {
-   StringBuilder query = new StringBuilder();
-   query.append("SELECT P.ID, P.USERNAME, P.PASSWORD, P.FIRST_NAME, P.LAST_NAME ");
-   query.append("FROM PERSON P ");
-   if (id != null) {
-   query.append("WHERE P.ID like #id# ");
-   }
-   if (firstName != null) {
-   if (query.indexOf("WHERE") == -1) {
-   query.append("WHERE ");
-   } else {
-   query.append("AND ");
-   }
-   query.append("P.FIRST_NAME like #firstName# ");
-   }
-   if (lastName != null) {
-   if (query.indexOf("WHERE") == -1) {
-   query.append("WHERE ");
-   } else {
-   query.append("AND ");
-   }
-   query.append("P.LAST_NAME like #lastName# ");
-   }
-   query.append("ORDER BY P.LAST_NAME;");
-   return query.toString().replaceAll("\\s+", " ").trim(); // Entfernt Leerzeichen und Zeilenumbrüche
-   }
-
-   @Test
-   void shouldProduceExpectedSimpleSelectStatement() {
-   String expectedQuery = "SELECT P.ID, P.USERNAME, P.PASSWORD, P.FIRST_NAME, P.LAST_NAME FROM PERSON P WHERE P.ID like #id# AND P.FIRST_NAME like #firstName# AND P.LAST_NAME like #lastName# ORDER BY P.LAST_NAME;";
-   String actualQuery = example2("123", "John%", "Doe%");
-   assertEquals(expectedQuery, actualQuery);
-   }
-
-   @Test
-   void shouldProduceExpectedSimpleSelectStatementMissingFirstParam() {
-   String expectedQuery = "SELECT P.ID, P.USERNAME, P.PASSWORD, P.FIRST_NAME, P.LAST_NAME FROM PERSON P WHERE P.FIRST_NAME like #firstName# AND P.LAST_NAME like #lastName# ORDER BY P.LAST_NAME;";
-   String actualQuery = example2(null, "John%", "Doe%");
-   assertEquals(expectedQuery, actualQuery);
-   }
-
-   @Test
-   void shouldProduceExpectedSimpleSelectStatementMissingFirstTwoParams() {
-   String expectedQuery = "SELECT P.ID, P.USERNAME, P.PASSWORD, P.FIRST_NAME, P.LAST_NAME FROM PERSON P WHERE P.LAST_NAME like #lastName# ORDER BY P.LAST_NAME;";
-   String actualQuery = example2(null, null, "Doe%");
-   assertEquals(expectedQuery, actualQuery);
-   }
-
-   @Test
-   void shouldProduceExpectedSimpleSelectStatementMissingAllParams() {
-   String expectedQuery = "SELECT P.ID, P.USERNAME, P.PASSWORD, P.FIRST_NAME, P.LAST_NAME FROM PERSON P ORDER BY P.LAST_NAME;";
-   String actualQuery = example2(null, null, null);
-   assertEquals(expectedQuery, actualQuery);
-   }
-
-   @Test
-   void shouldProduceExpectedComplexSelectStatement() {
-   String expectedQuery = "SELECT P.ID, P.USERNAME, P.PASSWORD, P.FULL_NAME, P.LAST_NAME, P.CREATED_ON, P.UPDATED_ON FROM PERSON P INNER JOIN ACCOUNT A on D.ID = P.DEPARTMENT_ID INNER JOIN DEPARTMENT D on D.ID = P.DEPARTMENT_ID INNER JOIN COMPANY C on D.COMPANY_ID = C.ID WHERE P.ID = A.ID AND (P.FIRST_NAME like ? OR P.LAST_NAME like ?) GROUP BY P.ID HAVING (P.LAST_NAME like ? OR P.FIRST_NAME like ?) ORDER BY P.ID, P.FULL_NAME;";
-   String actualQuery = example1();
-   assertEquals(expectedQuery, actualQuery);
-   }
+//   private static String example1() {
+//   return "SELECT P.ID, P.USERNAME, P.PASSWORD, P.FULL_NAME, P.LAST_NAME, " + "P.CREATED_ON, P.UPDATED_ON "
+//   + "FROM PERSON P " + "INNER JOIN ACCOUNT A on D.ID = P.DEPARTMENT_ID "
+//   + "INNER JOIN DEPARTMENT D on D.ID = P.DEPARTMENT_ID " + "INNER JOIN COMPANY C on D.COMPANY_ID = C.ID "
+//   + "WHERE P.ID = A.ID " + "AND (P.FIRST_NAME like ? OR P.LAST_NAME like ?) " + "GROUP BY P.ID "
+//   + "HAVING (P.LAST_NAME like ? OR P.FIRST_NAME like ?) " + "ORDER BY P.ID, P.FULL_NAME;";
+//   }
+//
+//   private static String example2(String id, String firstName, String lastName) {
+//   StringBuilder query = new StringBuilder();
+//   query.append("SELECT P.ID, P.USERNAME, P.PASSWORD, P.FIRST_NAME, P.LAST_NAME ");
+//   query.append("FROM PERSON P ");
+//   if (id != null) {
+//   query.append("WHERE P.ID like #id# ");
+//   }
+//   if (firstName != null) {
+//   if (query.indexOf("WHERE") == -1) {
+//   query.append("WHERE ");
+//   } else {
+//   query.append("AND ");
+//   }
+//   query.append("P.FIRST_NAME like #firstName# ");
+//   }
+//   if (lastName != null) {
+//   if (query.indexOf("WHERE") == -1) {
+//   query.append("WHERE ");
+//   } else {
+//   query.append("AND ");
+//   }
+//   query.append("P.LAST_NAME like #lastName# ");
+//   }
+//   query.append("ORDER BY P.LAST_NAME;");
+//   return query.toString().replaceAll("\\s+", " ").trim(); // Entfernt Leerzeichen und Zeilenumbrüche
+//   }
+//
+//   @Test
+//   void shouldProduceExpectedSimpleSelectStatement() {
+//   String expectedQuery = "SELECT P.ID, P.USERNAME, P.PASSWORD, P.FIRST_NAME, P.LAST_NAME FROM PERSON P WHERE P.ID like #id# AND P.FIRST_NAME like #firstName# AND P.LAST_NAME like #lastName# ORDER BY P.LAST_NAME;";
+//   String actualQuery = example2("123", "John%", "Doe%");
+//   assertEquals(expectedQuery, actualQuery);
+//   }
+//
+//   @Test
+//   void shouldProduceExpectedSimpleSelectStatementMissingFirstParam() {
+//   String expectedQuery = "SELECT P.ID, P.USERNAME, P.PASSWORD, P.FIRST_NAME, P.LAST_NAME FROM PERSON P WHERE P.FIRST_NAME like #firstName# AND P.LAST_NAME like #lastName# ORDER BY P.LAST_NAME;";
+//   String actualQuery = example2(null, "John%", "Doe%");
+//   assertEquals(expectedQuery, actualQuery);
+//   }
+//
+//   @Test
+//   void shouldProduceExpectedSimpleSelectStatementMissingFirstTwoParams() {
+//   String expectedQuery = "SELECT P.ID, P.USERNAME, P.PASSWORD, P.FIRST_NAME, P.LAST_NAME FROM PERSON P WHERE P.LAST_NAME like #lastName# ORDER BY P.LAST_NAME;";
+//   String actualQuery = example2(null, null, "Doe%");
+//   assertEquals(expectedQuery, actualQuery);
+//   }
+//
+//   @Test
+//   void shouldProduceExpectedSimpleSelectStatementMissingAllParams() {
+//   String expectedQuery = "SELECT P.ID, P.USERNAME, P.PASSWORD, P.FIRST_NAME, P.LAST_NAME FROM PERSON P ORDER BY P.LAST_NAME;";
+//   String actualQuery = example2(null, null, null);
+//   assertEquals(expectedQuery, actualQuery);
+//   }
+//
+//   @Test
+//   void shouldProduceExpectedComplexSelectStatement() {
+//   String expectedQuery = "SELECT P.ID, P.USERNAME, P.PASSWORD, P.FULL_NAME, P.LAST_NAME, P.CREATED_ON, P.UPDATED_ON FROM PERSON P INNER JOIN ACCOUNT A on D.ID = P.DEPARTMENT_ID INNER JOIN DEPARTMENT D on D.ID = P.DEPARTMENT_ID INNER JOIN COMPANY C on D.COMPANY_ID = C.ID WHERE P.ID = A.ID AND (P.FIRST_NAME like ? OR P.LAST_NAME like ?) GROUP BY P.ID HAVING (P.LAST_NAME like ? OR P.FIRST_NAME like ?) ORDER BY P.ID, P.FULL_NAME;";
+//   String actualQuery = example1();
+//   assertEquals(expectedQuery, actualQuery);
+//   }
 
 }
 // KItest und Mini 3-4 5/5

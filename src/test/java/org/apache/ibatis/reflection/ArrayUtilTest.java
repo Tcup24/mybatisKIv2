@@ -109,121 +109,121 @@ class ArrayUtilTest {
   // }
 
   // KItest
-//  @Test
-//  public void testHashCode() {
-//    // Test: Hashcode für verschiedene Array-Typen vergleichen
-//    int[] intArray = { 1, 2, 3 };
-//    assertEquals(Arrays.hashCode(intArray), ArrayUtil.hashCode(intArray));
-//
-//    long[] longArray = { 1L, 2L, 3L };
-//    assertEquals(Arrays.hashCode(longArray), ArrayUtil.hashCode(longArray));
-//
-//    String[] stringArray = { "a", "b", "c" };
-//    assertEquals(Arrays.hashCode(stringArray), ArrayUtil.hashCode(stringArray));
-//
-//    // Test: hashCode für null-Wert
-//    assertEquals(0, ArrayUtil.hashCode(null));
-//
-//    // Test: hashCode für ein Nicht-Array-Objekt
-//    String str = "Hello";
-//    assertEquals(str.hashCode(), ArrayUtil.hashCode(str));
-//  }
-//
-//  @Test
-//  public void testEquals() {
-//    // Test: Gleichheitsprüfung für Arrays
-//    int[] intArray1 = { 1, 2, 3 };
-//    int[] intArray2 = { 1, 2, 3 };
-//    assertTrue(ArrayUtil.equals(intArray1, intArray2));
-//
-//    int[] intArray3 = { 1, 2, 4 };
-//    assertFalse(ArrayUtil.equals(intArray1, intArray3));
-//
-//    // Test: Gleichheitsprüfung für null-Werte
-//    assertTrue(ArrayUtil.equals(null, null));
-//    assertFalse(ArrayUtil.equals(intArray1, null));
-//    assertFalse(ArrayUtil.equals(null, intArray2));
-//
-//    // Test: Gleichheitsprüfung für Nicht-Array-Objekte
-//    assertTrue(ArrayUtil.equals("test", "test"));
-//    assertFalse(ArrayUtil.equals("test", "Test"));
-//  }
-//
-//  @Test
-//  public void testToString() {
-//    // Test: toString für Arrays
-//    int[] intArray = { 1, 2, 3 };
-//    assertEquals(Arrays.toString(intArray), ArrayUtil.toString(intArray));
-//
-//    String[] stringArray = { "foo", "bar" };
-//    assertEquals(Arrays.toString(stringArray), ArrayUtil.toString(stringArray));
-//
-//    // Test: toString für Nicht-Array-Objekte
-//    String str = "Hello";
-//    assertEquals(str.toString(), ArrayUtil.toString(str));
-//
-//    // Test: toString für null-Wert
-//    assertEquals("null", ArrayUtil.toString(null));
-//  }
+  @Test
+  public void testHashCode() {
+    // Test: Hashcode für verschiedene Array-Typen vergleichen
+    int[] intArray = { 1, 2, 3 };
+    assertEquals(Arrays.hashCode(intArray), ArrayUtil.hashCode(intArray));
+
+    long[] longArray = { 1L, 2L, 3L };
+    assertEquals(Arrays.hashCode(longArray), ArrayUtil.hashCode(longArray));
+
+    String[] stringArray = { "a", "b", "c" };
+    assertEquals(Arrays.hashCode(stringArray), ArrayUtil.hashCode(stringArray));
+
+    // Test: hashCode für null-Wert
+    assertEquals(0, ArrayUtil.hashCode(null));
+
+    // Test: hashCode für ein Nicht-Array-Objekt
+    String str = "Hello";
+    assertEquals(str.hashCode(), ArrayUtil.hashCode(str));
+  }
+
+  @Test
+  public void testEquals() {
+    // Test: Gleichheitsprüfung für Arrays
+    int[] intArray1 = { 1, 2, 3 };
+    int[] intArray2 = { 1, 2, 3 };
+    assertTrue(ArrayUtil.equals(intArray1, intArray2));
+
+    int[] intArray3 = { 1, 2, 4 };
+    assertFalse(ArrayUtil.equals(intArray1, intArray3));
+
+    // Test: Gleichheitsprüfung für null-Werte
+    assertTrue(ArrayUtil.equals(null, null));
+    assertFalse(ArrayUtil.equals(intArray1, null));
+    assertFalse(ArrayUtil.equals(null, intArray2));
+
+    // Test: Gleichheitsprüfung für Nicht-Array-Objekte
+    assertTrue(ArrayUtil.equals("test", "test"));
+    assertFalse(ArrayUtil.equals("test", "Test"));
+  }
+
+  @Test
+  public void testToString() {
+    // Test: toString für Arrays
+    int[] intArray = { 1, 2, 3 };
+    assertEquals(Arrays.toString(intArray), ArrayUtil.toString(intArray));
+
+    String[] stringArray = { "foo", "bar" };
+    assertEquals(Arrays.toString(stringArray), ArrayUtil.toString(stringArray));
+
+    // Test: toString für Nicht-Array-Objekte
+    String str = "Hello";
+    assertEquals(str.toString(), ArrayUtil.toString(str));
+
+    // Test: toString für null-Wert
+    assertEquals("null", ArrayUtil.toString(null));
+  }
 
   // //Mini
-   @Test
-   public void testHashCodeTwoMini() {
-   // Test für unterschiedliche Array-Typen
-   int[] intArray = { 1, 2, 3 };
-   assertEquals(Arrays.hashCode(intArray), ArrayUtil.hashCode(intArray));
-
-   double[] doubleArray = { 1.0, 2.0, 3.0 };
-   assertEquals(Arrays.hashCode(doubleArray), ArrayUtil.hashCode(doubleArray));
-
-   // Test für null
-   assertEquals(0, ArrayUtil.hashCode(null));
-
-   // Test für Nicht-Array-Objekt
-   String str = "Hello";
-   assertEquals(str.hashCode(), ArrayUtil.hashCode(str));
-   }
-
-   // Test für die Methode equals
-   @Test
-   public void testEqualsTwoMini() {
-   // Test für Arrays mit gleichen Inhalten
-   int[] intArray1 = { 1, 2, 3 };
-   int[] intArray2 = { 1, 2, 3 };
-   assertTrue(ArrayUtil.equals(intArray1, intArray2));
-
-   // Test für Arrays mit unterschiedlichen Inhalten
-   int[] intArray3 = { 1, 2, 4 };
-   assertFalse(ArrayUtil.equals(intArray1, intArray3));
-
-   // Test für null-Werte
-   assertTrue(ArrayUtil.equals(null, null));
-   String str = "Hello";
-   assertFalse(ArrayUtil.equals(null, str));
-   assertFalse(ArrayUtil.equals(str, null));
-
-   // Test für Nicht-Array-Objekte
-   String str1 = "Hello";
-   String str2 = "Hello";
-   assertTrue(ArrayUtil.equals(str1, str2));
-
-   String str3 = "World";
-   assertFalse(ArrayUtil.equals(str1, str3));
-   }
-
-   // Test für die Methode toString
-   @Test
-   public void testToStringTwoMini() {
-   // Test für Umwandlung eines Arrays in eine Zeichenkette
-   int[] intArray = { 1, 2, 3 };
-   assertEquals(Arrays.toString(intArray), ArrayUtil.toString(intArray));
-
-   // Test für Nicht-Array-Objekte
-   String str = "Hello World";
-   assertEquals(str.toString(), ArrayUtil.toString(str));
-
-   // Test für null
-   assertEquals("null", ArrayUtil.toString(null));
-   }
+//   @Test
+//   public void testHashCodeTwoMini() {
+//   // Test für unterschiedliche Array-Typen
+//   int[] intArray = { 1, 2, 3 };
+//   assertEquals(Arrays.hashCode(intArray), ArrayUtil.hashCode(intArray));
+//
+//   double[] doubleArray = { 1.0, 2.0, 3.0 };
+//   assertEquals(Arrays.hashCode(doubleArray), ArrayUtil.hashCode(doubleArray));
+//
+//   // Test für null
+//   assertEquals(0, ArrayUtil.hashCode(null));
+//
+//   // Test für Nicht-Array-Objekt
+//   String str = "Hello";
+//   assertEquals(str.hashCode(), ArrayUtil.hashCode(str));
+//   }
+//
+//   // Test für die Methode equals
+//   @Test
+//   public void testEqualsTwoMini() {
+//   // Test für Arrays mit gleichen Inhalten
+//   int[] intArray1 = { 1, 2, 3 };
+//   int[] intArray2 = { 1, 2, 3 };
+//   assertTrue(ArrayUtil.equals(intArray1, intArray2));
+//
+//   // Test für Arrays mit unterschiedlichen Inhalten
+//   int[] intArray3 = { 1, 2, 4 };
+//   assertFalse(ArrayUtil.equals(intArray1, intArray3));
+//
+//   // Test für null-Werte
+//   assertTrue(ArrayUtil.equals(null, null));
+//   String str = "Hello";
+//   assertFalse(ArrayUtil.equals(null, str));
+//   assertFalse(ArrayUtil.equals(str, null));
+//
+//   // Test für Nicht-Array-Objekte
+//   String str1 = "Hello";
+//   String str2 = "Hello";
+//   assertTrue(ArrayUtil.equals(str1, str2));
+//
+//   String str3 = "World";
+//   assertFalse(ArrayUtil.equals(str1, str3));
+//   }
+//
+//   // Test für die Methode toString
+//   @Test
+//   public void testToStringTwoMini() {
+//   // Test für Umwandlung eines Arrays in eine Zeichenkette
+//   int[] intArray = { 1, 2, 3 };
+//   assertEquals(Arrays.toString(intArray), ArrayUtil.toString(intArray));
+//
+//   // Test für Nicht-Array-Objekte
+//   String str = "Hello World";
+//   assertEquals(str.toString(), ArrayUtil.toString(str));
+//
+//   // Test für null
+//   assertEquals("null", ArrayUtil.toString(null));
+//   }
 
 }
